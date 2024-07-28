@@ -36,15 +36,14 @@ public class EventSystem {
         events.get(index).setCapacity(number);
         return new Response("Success change");
    }
-   @GetMapping("/search/{id}")
-   public Event searchEvent(@PathVariable int id){
+@GetMapping("/search/{id}")
+   public Event searchEvent(@PathVariable String id){
         for (Event e:events){
-            if(e.getId().equals(id)){
-
+            if(e.getId().equals(id)) {
+                return e;
             }
-            return e;
         }
-         return null;
+        return null;
    }
 
 
